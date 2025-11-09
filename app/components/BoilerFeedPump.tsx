@@ -43,6 +43,28 @@ function BoilerPumpModel({ isEnhanced }: { isEnhanced: boolean }) {
   return <primitive object={scene} />;
 }
 
+function FiredBoilerModel() {
+  const { scene } = useGLTF("/models/fired_boiler.glb");
+  scene.scale.set(1.2, 1.2, 1.2);
+  scene.position.set(4, -0.5, 0); // position it beside the boiler pump
+  scene.rotation.y = -Math.PI / 3;
+
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh && child.material) {
+        const mat = child.material;
+        mat.transparent = false;
+        mat.opacity = 1.0;
+        child.castShadow = true;
+        child.receiveShadow = true;
+        mat.needsUpdate = true;
+      }
+    });
+  }, [scene]);
+
+  return <primitive object={scene} />;
+}
+
 export default function BoilerFeedPump() {
   const [isEnhanced, setIsEnhanced] = useState(false);
   const [autoRotate, setAutoRotate] = useState(false);
@@ -59,7 +81,7 @@ export default function BoilerFeedPump() {
       <h1 className="text-white text-2xl font-semibold mb-4">3D Boiler Pump Visualization</h1>
 
       <div className="w-[90%] h-[80vh] bg-gray-900 rounded-2xl shadow-2xl">
-        <Canvas camera={{ position: [3, 2, 6], fov: 60 }} shadows>
+        <Canvas camera={{ position: [6, 3, 8], fov: 60 }} shadows>
           <color attach="background" args={['#111827']} />
           <ambientLight intensity={0.3} />
           <directionalLight position={[5, 10, 5]} intensity={1.2} castShadow />
@@ -68,6 +90,13 @@ export default function BoilerFeedPump() {
 
           <Suspense fallback={<Loader />}>
             <BoilerPumpModel isEnhanced={isEnhanced} />
+            <FiredBoilerModel />
+            <Html position={[0, -1.2, 0]} center>
+              <div className="text-gray-300 text-sm">Boiler Pump</div>
+            </Html>
+            <Html position={[4, -1.2, 0]} center>
+              <div className="text-gray-300 text-sm">Fired Boiler</div>
+            </Html>
           </Suspense>
 
           <OrbitControls
