@@ -12,7 +12,7 @@ function Loader() {
 function BoilerPumpModel({ isEnhanced }: { isEnhanced: boolean }) {
   const { scene } = useGLTF("/models/boiler_pump.glb");
   scene.scale.set(1.5, 1.5, 1.5);
-  scene.position.set(0, -0.5, 0);
+  scene.position.set(-3, -0.5, 0);
   scene.rotation.y = Math.PI / 2;
 
   useEffect(() => {
@@ -44,9 +44,9 @@ function BoilerPumpModel({ isEnhanced }: { isEnhanced: boolean }) {
 }
 
 function FiredBoilerModel() {
-  const { scene } = useGLTF("/models/fired_boiler.glb");
+  const { scene } = useGLTF("/fired_boiler/scene.gltf");
   scene.scale.set(1.2, 1.2, 1.2);
-  scene.position.set(4, -0.5, 0); // position it beside the boiler pump
+  scene.position.set(3.5, -0.5, 0); // position it beside the boiler pump
   scene.rotation.y = -Math.PI / 3;
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function BoilerFeedPump() {
       <h1 className="text-white text-2xl font-semibold mb-4">3D Boiler Pump Visualization</h1>
 
       <div className="w-[90%] h-[80vh] bg-gray-900 rounded-2xl shadow-2xl">
-        <Canvas camera={{ position: [6, 3, 8], fov: 60 }} shadows>
+        <Canvas camera={{ position: [8, 3, 9], fov: 60 }} shadows>
           <color attach="background" args={['#111827']} />
           <ambientLight intensity={0.3} />
           <directionalLight position={[5, 10, 5]} intensity={1.2} castShadow />
@@ -91,10 +91,10 @@ export default function BoilerFeedPump() {
           <Suspense fallback={<Loader />}>
             <BoilerPumpModel isEnhanced={isEnhanced} />
             <FiredBoilerModel />
-            <Html position={[0, -1.2, 0]} center>
+            <Html position={[-3, -1.2, 0]} center>
               <div className="text-gray-300 text-sm">Boiler Pump</div>
             </Html>
-            <Html position={[4, -1.2, 0]} center>
+            <Html position={[3.5, -1.2, 0]} center>
               <div className="text-gray-300 text-sm">Fired Boiler</div>
             </Html>
           </Suspense>
