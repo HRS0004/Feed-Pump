@@ -16,7 +16,7 @@ function BoilerPumpModel() {
   scene.rotation.y = Math.PI / 2;
 
   // Analyze and log model information
-  React.useEffect(() => {
+  useEffect(() => {
     let markdown = '# Boiler Pump Model Information\n\n## Meshes and Materials\n\n';
     scene.traverse((child) => {
       if ((child as any).isMesh) {
@@ -51,25 +51,6 @@ function BoilerPumpModel() {
     });
     console.log(markdown);
   }, [scene]);
-
-  scene.traverse((child) => {
-    if ((child as any).isMesh) {
-      (child as any).castShadow = true;
-      (child as any).receiveShadow = true;
-      if ((child as any).material) {
-        (child as any).material.metalness = 0.7;
-        (child as any).material.roughness = 0.4;
-      }
-    }
-  });
-
-  return <primitive object={scene} />;
-}
-function BoilerPumpModel() {
-  const { scene } = useGLTF("/models/boiler_pump.glb");
-  scene.scale.set(1.5, 1.5, 1.5);
-  scene.position.set(0, -0.5, 0);
-  scene.rotation.y = Math.PI / 2;
 
   scene.traverse((child) => {
     if ((child as any).isMesh) {
