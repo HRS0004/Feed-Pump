@@ -1,11 +1,12 @@
-# TODO: Git and GitHub Setup for Boiler Feed Pump Project
+# TODO: Enhance Boiler Feed Pump with HDRI, Loading Screen, and Auto Orbit
 
-- [x] Check if Git is initialized in the project directory
-- [x] If not initialized, run `git init`
-- [x] Add all files to Git staging area with `git add .`
-- [x] Commit changes with message "Initial commit: Boiler feed pump 3D visualization app"
-- [x] Check if GitHub CLI (gh) is installed
-- [x] If not installed, install GitHub CLI using `winget install --id GitHub.cli`
-- [x] Create a new public GitHub repository named "Feed-Pump" using `gh repo create Feed-Pump --public`
-- [x] Set the remote origin to the new repository URL
-- [x] Push the committed changes to the repository with `git push -u origin main`
+- [x] Update imports in BoilerFeedPump.tsx to include Environment, Html, useProgress
+- [x] Add Environment component for HDRI lighting
+- [x] Create Loader component for loading screen
+- [x] Update Suspense fallback to use Loader
+- [x] Update OrbitControls for auto rotation
+- [x] Adjust light intensities as specified
+- [x] Create public/hdris/ directory
+- [x] Start dev server (running on port 3001)
+- [x] Download and place HDRI file (studio_small_09_2k.hdr) in public/hdris/
+- [ ] Test the app for loading screen, HDRI reflections, and auto orbit
