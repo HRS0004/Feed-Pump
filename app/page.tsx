@@ -18,7 +18,7 @@ export default function Home() {
           Explore the interactive 3D model of a boiler feed pump featuring a rotating motor, shaft, pump casing, and inlet/outlet pipes. Use your mouse to rotate and zoom.
         </p>
       </div>
-      <div className="relative w-full h-[60vh] md:h-[80vh] bg-gray-900 rounded-2xl shadow-2xl overflow-hidden mb-8">
+      <div className="relative w-full h-[90vh] md:h-[100vh] bg-gray-900 rounded-2xl shadow-2xl mb-8">
         <BoilerFeedPump isRunning={isRunning} speed={speed} showCutaway={showCutaway} />
         <div className="absolute top-4 right-4 z-10">
           <button

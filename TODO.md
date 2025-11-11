@@ -1,11 +1,6 @@
-# TODO: Git and GitHub Setup for Boiler Feed Pump Project
+# TODO: Update 3D Model Positions and Rotations
 
-- [x] Check if Git is initialized in the project directory
-- [x] If not initialized, run `git init`
-- [ ] Add all files to Git staging area with `git add .`
-- [ ] Commit changes with message "Initial commit: Boiler feed pump 3D visualization app"
-- [ ] Check if GitHub CLI (gh) is installed
-- [ ] If not installed, install GitHub CLI using `winget install --id GitHub.cli`
-- [ ] Create a new public GitHub repository named "Feed-Pump" using `gh repo create Feed-Pump --public`
-- [ ] Set the remote origin to the new repository URL
-- [ ] Push the committed changes to the repository with `git push -u origin main`
+- [x] Update BoilerPumpModel position to (-3, -0.5, 0)
+- [x] Update FiredBoilerModel position to (3.5, -0.5, 0)
+- [x] Update Html label positions to [-3, -1.2, 0] for Boiler Pump and [3.5, -1.2, 0] for Fired Boiler
+- [x] Update Canvas camera position to [8, 3, 9]
